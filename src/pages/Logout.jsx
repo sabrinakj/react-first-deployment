@@ -3,8 +3,15 @@ import { useAuth } from "../hooks/useAuth";
 function Logout() {
   const [user, isAuthenticated, login, logout] = useAuth();
 
+  function changePathname(newPathname) {
+    if (window.location.pathname !== newPathname) {
+      window.location.pathname = newPathname;
+    }
+  }
+
   const handleLogout = () => {
     logout();
+    changePathname("/");
   };
 
   return (

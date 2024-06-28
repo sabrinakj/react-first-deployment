@@ -6,9 +6,16 @@ function Login() {
   const [password, setPassword] = useState("");
   const [user, isAuthenticated, login] = useAuth();
 
-  const handleLogin = () => {
-    // e.preventDefault();
+  function changePathname(newPathname) {
+    if (window.location.pathname !== newPathname) {
+      window.location.pathname = newPathname;
+    }
+  }
+
+  const handleLogin = (e) => {
+    e.preventDefault();
     login(username, password);
+    changePathname("/");
   };
 
 

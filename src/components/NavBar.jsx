@@ -6,20 +6,12 @@ function NavBar() {
   let titlePath = "";
   const [user, isAuthenticated] = useAuth();
 
-  function changePathname(newPathname) {
-    if (window.location.pathname !== newPathname) {
-      window.location.pathname = newPathname;
-    }
-  }
-
   if (!isAuthenticated) {
     basePath = "/login";
     titlePath = "Login";
-    changePathname("/");
   } else {
     basePath = "/logout";
     titlePath = "Logout";
-    changePathname("/");
   }
   console.log(basePath);
 
@@ -48,7 +40,7 @@ function NavBar() {
             </Link>
           </li>
           <li>
-            <button>
+            <button className="bg-slate-400">
               <Link to={`${basePath}`} className="text-black">
                 {titlePath}
               </Link>
